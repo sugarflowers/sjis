@@ -1,9 +1,11 @@
 [package]
-name = "sjis"
-version = "0.1.0"
+name = "jsonobj"
+version = "0.2.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-encoding_rs = "0.8.32"
+serde_json = "1.0.94"
+binaryfile = { git = "https://github.com/sugarflowers/binaryfile.git" }
+sjis = { git = "https://github.com/sugarflowers/sjis.git" }
