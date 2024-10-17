@@ -19,7 +19,7 @@ pub fn is_sjis(binary: &Vec<u8>) -> bool {
         Err(_) => true,
     }
 }
-pub fn read_text(file_path: &str) -> Vec<u8> {
+pub fn read_text(file_path: &str) -> String {
 
     let file = File::open(file_path).unwrap();
     let mut reader = BufReader::new(file);
