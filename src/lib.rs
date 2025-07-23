@@ -1,6 +1,4 @@
 use encoding_rs::SHIFT_JIS;
-use std::fs::File;
-use std::io::{BufReader, Read};
 
 pub fn decode(binary: Vec<u8>) -> String {
     let (decoded, _, _) = SHIFT_JIS.decode(&binary);
@@ -19,18 +17,4 @@ pub fn is_sjis(binary: &Vec<u8>) -> bool {
         Err(_) => true,
     }
 }
-pub fn read_text(file_path: &str) -> String {
 
-    let file = File::open(file_path).unwrap();
-    let mut reader = BufReader::new(file);
-    let mut buffer = Vec::new();
-    reader.read_to_end(&mut buffer).unwrap();
-
-
-    if is_sjis(&buffer) {
-        decode(buffer)
-    } else {
-        String::from_utf8(buffer).unwrap()
-    }
-
-}
